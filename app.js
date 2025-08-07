@@ -332,3 +332,17 @@ app.post("/getFlight", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Flight mock server running on http://localhost:${PORT}`);
 });
+
+const URL = "https://flight-data-source.onrender.com/";
+
+const fetchFlightData = async () => {
+  try {
+    const response = await axios.get(URL);
+    console.log("Flight data fetched:", response.data);
+  } catch (error) {
+    console.error("Error fetching flight data:", error.message);
+  }
+};
+
+fetchFlightData();
+setInterval(fetchFlightData, 10 * 60 * 1000);
