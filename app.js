@@ -314,6 +314,10 @@ async function generateFlightSearchResult(request, airlineCode, flightIdx) {
   };
 }
 
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
 app.post("/getFlight", async (req, res) => {
   const request = req.body;
   const promises = [];
